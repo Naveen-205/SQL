@@ -62,10 +62,46 @@ select * from customer_rec;
 
 truncate table customer_rec;
 select * from customer_rec;
+drop table customer_rec;
 
+select * from customer_rec;
 
+select sum(customer_id) as total_customer from customer_rec ;
+select * from customer_rec;
 
+select count(customer_name) from customer_rec;
+select count(city) from customer_rec;
+select * from customer_rec;
 
+select count(customer_name) from customer_rec where state = "ca";
+drop table customer_rec;
 
+-- group by and ordered by --
 
- 
+create table learning(
+std_id INT primary key auto_increment,
+std_name varchar (200),
+mark int,
+department varchar(25)
+);
+
+insert into learning (std_name,mark,department) values ("Barath",67,"CSE"),("Venkat",89,"ECE"),
+("Praveen",23,"MECH"),("Abdul",63,"CSE"),("Kadhir",88,"CSE"),
+("John",81,"MECH"),("Manoj",91,"CSE"),("Mani",50,"ECE");
+
+select * from learning;
+alter table learning drop column std_id;
+select * from learning;
+
+select * from learning where department = "cse";
+select * from learning where department = "ece";
+
+select * from learning;
+
+select std_name,mark from learning;
+
+select std_name,mark from learning order by std_name asc;
+
+select avg(mark),department from learning group by department;
+
+select count(std_name),department from learning group by department;
